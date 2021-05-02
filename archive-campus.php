@@ -16,10 +16,11 @@ pageBanner(array(
        the_post(); 
        $mapLocation = get_field('map-location');
        ?>
-       <div class="marker" data-lat="<?php echo $mapLocation['lat'] ?>" data-lng="<?php echo $mapLocation['lng']; ?>"></div>
-     <?php }
-     echo paginate_links();
-   ?>
+       <div class="marker" data-lat="<?php echo $mapLocation['lat'] ?>" data-lng="<?php echo $mapLocation['lng']; ?>">
+       <h3><a href="<?php the_permalink(); ?>"></a><?php the_title(); ?></a></h3>
+       <?php echo $mapLocation['address'] ?>
+       </div>
+     <?php } ?>
    </div>
 
  </div>

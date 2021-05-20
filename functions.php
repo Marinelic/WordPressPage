@@ -47,13 +47,14 @@ function university_files() {
   if (strstr($_SERVER['SERVER_NAME'], 'fictional-university.local')) {
     wp_enqueue_script('main-university-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
   } else {
-    wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.fa5d5c9d16af5daf07c8.js'), NULL, '1.0', true);
-    wp_enqueue_script('main-university-js', get_theme_file_uri('/bundled-assets/scripts.5ae623996a3b28652925.js'), NULL, '1.0', true);
-    wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.5ae623996a3b28652925.css'));
+    wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.a452ec6c5c8e1d6c6336.js'), NULL, '1.0', true);
+    wp_enqueue_script('main-university-js', get_theme_file_uri('/bundled-assets/scripts.4961ad73fb3c89039fc8.js'), NULL, '1.0', true);
+    wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.4961ad73fb3c89039fc8.css'));
   }
 
   wp_localize_script('main-university-js', 'universityData', array(
-    'root_url' => get_site_url()
+    'root_url' => get_site_url(),
+    'nonce' => wp_create_nonce('wp_rest')
   ));
 
 }
@@ -132,7 +133,7 @@ add_action('login_enqueue_scripts', 'ourLoginCSS');
 
 function ourLoginCSS() {
   wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
-  wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.5ae623996a3b28652925.css'));
+  wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.4961ad73fb3c89039fc8.css'));
 }
 
 add_filter('login_headertitle', 'ourLoginTitle');
